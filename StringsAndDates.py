@@ -2,39 +2,48 @@
 # CIS261
 # StringsAndDates
 
-run = True
+user_date = input("Enter date: ") # March 31, 2021
+while user_date != '-1':
+    tokens = user_date.split()   # split by space
+    month = tokens[0]
+    if month == 'January':
+        month_int = 1
+    elif month == 'February':
+        month_int = 2
+    elif month == 'March':
+        month_int = 3
+    elif month == 'April':
+        month_int = 4
+    elif month == 'May':
+        month_int = 5
+    elif month == 'June':
+        month_int = 6
+    elif month == 'July':
+        month_int = 7
+    elif month == 'August':
+        month_int = 8
+    elif month == 'September':
+        month_int = 9
+    elif month == 'October':
+        month_int = 10
+    elif month == 'November':
+        month_int = 11
+    elif month == 'December':
+        month_int = 12
+    else:
+        month_int = 0
+    if len(tokens) >= 3 and month_int != 0 :
+        date_string = tokens[1]
+        if date_string[len(date_string) -1] == ',':
+            date_string = date_string[0:len(date_string) -1]
+            year = tokens[2]
+            print(str(month_int)+'/'+date_string+'/'+str(year))
+        else:
+            print("Date entered is not valid, Please enter a valid date: ")
+    else:
+        print("Date entered is not valid, Please enter a valid date: ")
+    user_date = input("Enter date: ")
 
+print("Thank you, See you later!")
 
-month = {
-    "January" : 1,
-    "February" : 2,
-    "March" : 3,
-    "April" : 4,
-    "May" : 5,
-    "June" : 6,
-    "July" : 7,
-    "August" : 8,
-    "September" : 9,
-    "October" : 10,
-    "November" : 11,
-    "December" : 12
-}
-
-
-while(run):
-
-    date = input("Enter Date (Format : March 31, 2021 or (-1 to exit) : ")
-
-    if (date == "-1"):
-        run = False
-        break
- 
-    try:
-        # Split the input and set the date in required format
-        list1 = date.split(" ")
-        new_format = f"{month[list1[0]]}/{list1[1][:-1]}/{list1[2]}"
-        print(new_format)
-
-    except Exception as e:
-        print("Invalid Input")
-         
+    
